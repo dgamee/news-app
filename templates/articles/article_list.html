@@ -1,0 +1,47 @@
+{% extends "../layout.html" %}
+
+{% block title %}All Articles {% endblock title %}
+
+{% block content %}
+
+    {% for article in article_list %}
+        <div class="card">
+            <div class="card-header">
+                <span class="font-weight-bold "><a class="no-decoration"  href="{% url 'article_detail' article.pk %}">{{ article.title }}</a></span> &middot; 
+                <span class="text-muted">by {{ article.author }} | {{ article.date }}</span>
+                <span class="float-end">
+                    <a class="no-decoration" href="{% url 'article_edit' article.pk %}">Edit</a> | <a class="no-decoration" href="{% url 'article_delete' article.pk %}">Delete</a>
+                </span>
+            </div>
+            <div class="card-body">
+                {{ article.body }} 
+            </div>
+            <div class="card-footer  text-muted"> 
+
+                <!-- i used article.comment_count because there is a method on the article model called comment_count
+                that counts all the comment on the article. if the method was not avaliable 
+                comment_set.count gives the count of comment.
+                comment_set.all gives all the comment -->
+
+                {% if article.comment_count < 1 %}
+                    <p>No comment yet</p>
+                {% else %}
+                    <span class="text-muted">comments {{ article.comment_set.count }} </span>
+                {% endif %}
+
+                <!-- commented the code below out because i didnt want to display the whole comment on an article 
+                under the post in the article list because it wont like nice and professional -->
+                
+
+                <!-- {% for comment in article.comment_set.all %}
+                <p>
+                    <span > {{ comment.author }} &Implies; </span>
+                    {{ comment }}
+                </p>
+                {% endfor %}
+                <span class="text-muted">comments {{ article.comment_count }} </span> -->
+            </div>
+        </div>
+        <br />
+    {% endfor %}
+{% endblock content %}
