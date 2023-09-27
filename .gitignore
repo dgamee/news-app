@@ -5,5 +5,5 @@ test.html
 test2.html
 __pycache__
 db.sqlite3
-staticfiles
+
 .DS_Store    #Mac-only
