@@ -1,8 +1,9 @@
-mlsn.58aad24fdf6c342b4e5c742a8accdb4febecc51beef736a1f32bdef3a6ed0a7a      mailersend
+mlsn.58aad24fdf6c342b@!4e5c742a8accdb4febecc51beef736a1f32bdef3a6ed0a7a      mailersend
 .venv
 .env
 test.html
 test2.html
 __pycache__
 db.sqlite3
+staticfiles
 .DS_Store    #Mac only
